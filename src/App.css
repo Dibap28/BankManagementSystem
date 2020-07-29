@@ -58,3 +58,9 @@ label{
   margin-left: 0px !important;
   margin-right: 0px !important;
 }
+.card{
+  margin-top: 10px;
+}
+.form-control,button{
+  border-radius: 0px !important;
+}

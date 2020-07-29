@@ -3,7 +3,7 @@ import {Table,Card} from 'react-bootstrap';
 
 const Loanlist = () => {
     return ( <React.Fragment>
-  <Card>
+  <Card className="col-md-10 offset-1" >
         <Card.Header as="h2">Loan Details</Card.Header>
       <Card-body>
         <Table striped bordered hover size="sm">

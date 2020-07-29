@@ -34,7 +34,7 @@ const Login = () => {
       <div className="col-md-8 offset-2">
       <Card>
         <Card.Header as="h2">SignIn</Card.Header>
-      <Card-body>
+      <Card.Body>
       <Form>
         <Form.Row className="unset-margin">
         <Form.Group className="Registration-flex fullwidth" controlId="formBasicEmail">
@@ -57,7 +57,8 @@ const Login = () => {
         </Button>
         </Link>
       </Form>
-      </Card-body>
+      <div><p>For New User <Link to="/register"> Register Here </Link></p></div>
+      </Card.Body>
       </Card>
       </div>
       </React.Fragment> );
