@@ -41,7 +41,7 @@ const Login = () => {
                   <Form.Control
                     className="halfwidth"
                     type="email"
-                    placeholder="Enter email"
+                    placeholder="Enter email as dibap"
                     onChange={setEmail}
                   />
                 </Form.Group>
@@ -55,7 +55,7 @@ const Login = () => {
                   <Form.Control
                     className="halfwidth"
                     type="password"
-                    placeholder="Password"
+                    placeholder="Password as 123"
                     onChange={setPassword}
                   />
                 </Form.Group>

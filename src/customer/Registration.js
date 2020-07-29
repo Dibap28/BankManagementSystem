@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Form, Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Login from "../customer/Login";
 
 const Registration = (props) => {
   let formname = props.formname;
