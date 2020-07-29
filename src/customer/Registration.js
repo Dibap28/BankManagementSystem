@@ -4,8 +4,6 @@ import {Link} from 'react-router-dom';
 import Login from '../customer/Login';
 
 const Registration = (props) => {
-  // let [fullname,email,username,password,address1,address2,country,state,city,zip,pan,contact_no,dob,account_type]
-  // = ["","","","","","","","","","","","","",""];
   let formname=props.formname;
   let IsDisabled=false;
   if(formname===undefined){
@@ -118,14 +116,14 @@ const Registration = (props) => {
             <Form.Label className="col-md-6">Country</Form.Label>
             <Form.Control className="col-md-6" as="select" name="country" defaultValue="Choose..." onChange={setHandler}>
               <option>Choose...</option>
-              <option>...</option>
+              <option>India</option>
             </Form.Control>
           </Form.Group>
           <Form.Group className="col-md-3 Registration-flex" controlId="formGridCity" >
             <Form.Label className="col-md-6">State</Form.Label>
             <Form.Control className="col-md-6" as="select" name="state" defaultValue="Choose..." onChange={setHandler}>
               <option>Choose...</option>
-              <option>...</option>
+              <option>Kerala</option>
             </Form.Control>
           </Form.Group>
       
@@ -133,7 +131,7 @@ const Registration = (props) => {
             <Form.Label className="col-md-6">City</Form.Label>
             <Form.Control className="col-md-6" as="select" name="city" defaultValue="Choose..." onChange={setHandler}>
               <option>Choose...</option>
-              <option>...</option>
+              <option>Eranakulam</option>
             </Form.Control>
           </Form.Group>
       
