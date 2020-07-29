@@ -1,39 +1,40 @@
-import React from 'react';
-import {Table,Card} from 'react-bootstrap';
+import React from "react";
+import { Table, Card } from "react-bootstrap";
 
 const Loanlist = () => {
-    return ( <React.Fragment>
-  <Card className="col-md-10 offset-1" >
+  return (
+    <React.Fragment>
+      <Card className="col-md-10 offset-1">
         <Card.Header as="h2">Loan Details</Card.Header>
-      <Card-body>
-        <Table striped bordered hover size="sm">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Username</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-  </tbody>
-
-</Table>
-    </Card-body>
+        <Card-body>
+          <Table striped bordered hover size="sm">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+            </tbody>
+          </Table>
+        </Card-body>
       </Card>
-    </React.Fragment> );
-}
- 
+    </React.Fragment>
+  );
+};
+
 export default Loanlist;

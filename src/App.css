@@ -37,30 +37,31 @@
   }
 }
 
-.Registration-flex{
+.Registration-flex {
   display: inline-flex;
 }
-label{
+label {
   text-align: left;
 }
-.Button-left{
-  float:left;
+.Button-left {
+  float: left;
   margin-left: 15px;
 }
-.halfwidth{
+.halfwidth {
   width: 50%;
-  padding-left:15px !important;
+  padding-left: 15px !important;
 }
-.fullwidth{
-  width:100%;
+.fullwidth {
+  width: 100%;
 }
-.unset-margin{
+.unset-margin {
   margin-left: 0px !important;
   margin-right: 0px !important;
 }
-.card{
+.card {
   margin-top: 10px;
 }
-.form-control,button{
+.form-control,
+button {
   border-radius: 0px !important;
 }
