@@ -10,67 +10,32 @@ const Registration = (props) => {
   } else {
     IsDisabled = true;
   }
-  const [fullname, setFullName] = useState("");
-  const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [address1, setAddress1] = useState("");
-  const [address2, setAddress2] = useState("");
-  const [country, setCountry] = useState("");
-  const [state, setState] = useState("");
-  const [city, setCity] = useState("");
-  const [zip, setZip] = useState("");
-  const [pan, setPan] = useState("");
-  const [contact_no, setContactNo] = useState("");
-  const [dob, setDob] = useState("");
-  const [account_type, setAccountType] = useState("");
-
+  const [state, setState] = useState({
+    fullname: "",
+    email: "",
+    username: "",
+    password: "",
+    address1: "",
+    address2: "",
+    country: "",
+    state: "",
+    city: "",
+    zip: "",
+    pan: "",
+    contact_no: "",
+    dob: "",
+    account_type: "",
+  });
   const setHandler = (event) => {
-    if (event.target.name === "fullname") {
-      setFullName(event.target.value);
-    }
-    if (event.target.name === "email") {
-      setEmail(event.target.value);
-    }
-    if (event.target.name === "username") {
-      setUsername(event.target.value);
-    }
-    if (event.target.name === "password") {
-      setPassword(event.target.value);
-    }
-    if (event.target.name === "address1") {
-      setAddress1(event.target.value);
-    }
-    if (event.target.name === "address2") {
-      setAddress2(event.target.value);
-    }
-    if (event.target.name === "country") {
-      setCountry(event.target.value);
-    }
-    if (event.target.name === "state") {
-      setState(event.target.value);
-    }
-    if (event.target.name === "city") {
-      setCity(event.target.value);
-    }
-    if (event.target.name === "zip") {
-      setZip(event.target.value);
-    }
-    if (event.target.name === "pan") {
-      setPan(event.target.value);
-    }
-    if (event.target.name === "contct_no") {
-      setContactNo(event.target.value);
-    }
-    if (event.target.name === "dob") {
-      setDob(event.target.value);
-    }
-    if (event.target.name === "account_type") {
-      setAccountType(event.target.value);
-    }
+    const value = event.target.value;
+    setState({
+      ...state,
+      [event.target.name]: value,
+    });
   };
+
   const Register = () => {
-    console.log("Here", fullname, username, dob, account_type, country);
+    console.log("Here", state);
   };
   return (
     <React.Fragment>
@@ -88,6 +53,7 @@ const Registration = (props) => {
                   <Form.Control
                     className="col-md-9"
                     name="fullname"
+                    value={state.fullname}
                     type="text"
                     placeholder="Enter name"
                     onChange={setHandler}
@@ -103,6 +69,7 @@ const Registration = (props) => {
                     className="col-md-9"
                     name="email"
                     type="email"
+                    value={state.email}
                     placeholder="Enter email"
                     onChange={setHandler}
                     disabled={IsDisabled}
@@ -118,6 +85,7 @@ const Registration = (props) => {
                   <Form.Control
                     className="col-md-9"
                     name="username"
+                    value={state.username}
                     type="text"
                     placeholder="Enter username"
                     onChange={setHandler}
@@ -132,6 +100,7 @@ const Registration = (props) => {
                   <Form.Control
                     className="col-md-9"
                     name="password"
+                    value={state.password}
                     type="password"
                     placeholder="Password"
                     onChange={setHandler}
@@ -147,6 +116,7 @@ const Registration = (props) => {
                   <Form.Control
                     className="col-md-9"
                     name="address1"
+                    value={state.address1}
                     placeholder="House name"
                     onChange={setHandler}
                   />
@@ -160,6 +130,7 @@ const Registration = (props) => {
                   <Form.Control
                     className="col-md-9"
                     name="address2"
+                    value={state.address2}
                     placeholder="Apartment or floor"
                     onChange={setHandler}
                   />
@@ -175,6 +146,7 @@ const Registration = (props) => {
                     className="col-md-6"
                     as="select"
                     name="country"
+                    value={state.country}
                     defaultValue="Choose..."
                     onChange={setHandler}
                   >
@@ -191,6 +163,7 @@ const Registration = (props) => {
                     className="col-md-6"
                     as="select"
                     name="state"
+                    value={state.state}
                     defaultValue="Choose..."
                     onChange={setHandler}
                   >
@@ -208,6 +181,7 @@ const Registration = (props) => {
                     className="col-md-6"
                     as="select"
                     name="city"
+                    value={state.city}
                     defaultValue="Choose..."
                     onChange={setHandler}
                   >
@@ -224,6 +198,7 @@ const Registration = (props) => {
                   <Form.Control
                     className="col-md-6"
                     name="zip"
+                    value={state.zip}
                     type="text"
                     placeholder="Enter zipcode"
                     onChange={setHandler}
@@ -239,6 +214,7 @@ const Registration = (props) => {
                   <Form.Control
                     className="col-md-9"
                     name="pan"
+                    value={state.pan}
                     type="text"
                     placeholder="Enter pan no"
                     onChange={setHandler}
@@ -253,6 +229,7 @@ const Registration = (props) => {
                   <Form.Control
                     className="col-md-9"
                     name="contact_no"
+                    value={state.contact_no}
                     type="text"
                     placeholder="Enter contact no"
                     onChange={setHandler}
@@ -268,6 +245,7 @@ const Registration = (props) => {
                   <Form.Control
                     className="col-md-9"
                     name="dob"
+                    value={state.dob}
                     type="text"
                     placeholder="Enter mm/dd/yyyy"
                     onChange={setHandler}
@@ -282,6 +260,7 @@ const Registration = (props) => {
                   <Form.Control
                     className="col-md-9"
                     name="account_type"
+                    value={state.account_type}
                     type="text"
                     placeholder="Enter Account type"
                     onChange={setHandler}

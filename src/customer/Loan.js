@@ -1,37 +1,32 @@
 import React, { useState } from "react";
 import { Form, Button, Card } from "react-bootstrap";
+import { connect } from "react-redux";
 
-const Loan = () => {
-  const [loan_amount, setLoanamount] = useState("");
-  const [loan_type, setLoantype] = useState("");
-  const [date, setDate] = useState("");
-  const [rate_of_interest, setRate] = useState("");
-  const [duration_of_loan, setDuration] = useState("");
+const Loan = (props) => {
+  const [state, setState] = useState({
+    loan_amount: props.loan_amount_state,
+    loan_type: "Home Loan",
+    date: "1/8/2020",
+    rate_of_interest: "3.2",
+    duration_of_loan: "",
+  });
+  // const [loan_amount, setLoanamount] = useState(props.loan_amount_state);
+  // console.log("loan_amount", loan_amount);
+  // const [loan_type, setLoantype] = useState("");
+  // const [date, setDate] = useState("");
+  // const [rate_of_interest, setRate] = useState("");
+  // const [duration_of_loan, setDuration] = useState("");
+  const handleChange = (event) => {
+    //console.log(...state);
+    const value = event.target.value;
+    setState({
+      ...state,
+      [event.target.name]: value,
+    });
+  };
 
-  const setLoantypeHandle = (event) => {
-    setLoantype(event.target.value);
-  };
-  const setLoanamountHandle = (event) => {
-    setLoanamount(event.target.value);
-  };
-  const setDateHandle = (event) => {
-    setDate(event.target.value);
-  };
-  const setRateHandle = (event) => {
-    setRate(event.target.value);
-  };
-  const setDurationHandle = (event) => {
-    setDuration(event.target.value);
-  };
   const applyLoan = () => {
-    console.log(
-      "Values applied for loan",
-      loan_amount,
-      loan_type,
-      date,
-      rate_of_interest,
-      duration_of_loan
-    );
+    console.log("Values applied for loan", state);
   };
   return (
     <React.Fragment>
@@ -50,7 +45,8 @@ const Loan = () => {
                   className="col-md-6"
                   defaultValue="Choose..."
                   name="loan_type"
-                  onChange={setLoantypeHandle}
+                  value={state.loan_type}
+                  onChange={handleChange}
                 >
                   <option>Choose...</option>
                   <option>Home Loan</option>
@@ -64,17 +60,13 @@ const Loan = () => {
               >
                 <Form.Label className="col-md-6">Loan Amount</Form.Label>
                 <Form.Control
-                  as="select"
+                  type="text"
                   className="col-md-6"
                   defaultValue="Choose..."
                   name="loan_amount"
-                  onChange={setLoanamountHandle}
-                >
-                  <option>Choose...</option>
-                  <option>100000</option>
-                  <option>200000</option>
-                  <option>300000</option>
-                </Form.Control>
+                  value={props.loan_amount_state}
+                  onChange={handleChange}
+                ></Form.Control>
               </Form.Group>
             </Form.Row>
             <Form.Row>
@@ -88,7 +80,8 @@ const Loan = () => {
                   type="date"
                   placeholder="Enter date"
                   name="date"
-                  onChange={setDateHandle}
+                  value={state.date}
+                  onChange={handleChange}
                 />
               </Form.Group>
 
@@ -102,7 +95,8 @@ const Loan = () => {
                   className="col-md-6"
                   defaultValue="Choose..."
                   name="rate_of_interest"
-                  onChange={setRateHandle}
+                  value={state.rate_of_interest}
+                  onChange={handleChange}
                 >
                   <option>Choose...</option>
                   <option>3.2</option>
@@ -122,7 +116,8 @@ const Loan = () => {
                   className="col-md-6"
                   defaultValue="Choose..."
                   name="duration_of_loan"
-                  onChange={setDurationHandle}
+                  value={state.duration_of_loan}
+                  onChange={handleChange}
                 >
                   <option>Choose...</option>
                   <option>1</option>
@@ -134,7 +129,7 @@ const Loan = () => {
                 <Button
                   style={{ marginLeft: "10px", float: "left" }}
                   variant="primary"
-                  onClick={applyLoan}
+                  onClick={props.saveValue}
                 >
                   Apply Loan
                 </Button>
@@ -147,4 +142,17 @@ const Loan = () => {
   );
 };
 
-export default Loan;
+const mapStateToProps = (state) => {
+  return {
+    loan_amount_state: state.loan_amount,
+  };
+};
+
+const mapDispatchToProps = (dispatch, state) => {
+  const data = state.loan_type;
+  return {
+    saveValue: (data) => dispatch({ type: "ADD_LOAN", payload: data }),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Loan);
