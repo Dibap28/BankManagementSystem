@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Form, Button, Card } from "react-bootstrap";
 import { connect } from "react-redux";
+import { ADD_LOAN, SAVE_LIST } from "../store/action";
 
 const Loan = (props) => {
   console.log("PROPSSS-->", props.ln_array);
@@ -167,9 +168,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    saveValue: (data) => dispatch({ type: "ADD_LOAN", value: data }),
+    saveValue: (data) => dispatch({ type: ADD_LOAN, value: data }),
     saveLoanArray: (data) => {
-      dispatch({ type: "SAVE_LIST", value: data });
+      dispatch({ type: SAVE_LIST, value: data });
     },
   };
 };

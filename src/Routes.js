@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Registration from "./customer/Registration";
-import Login from "./customer/Login";
+import Login from "./login/Login";
 import Dashboard from "./customer/Dashboard";
 
 function Routes() {

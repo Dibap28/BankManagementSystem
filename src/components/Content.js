@@ -1,7 +1,7 @@
 import React from "react";
-import Loan from "../customer/Loan";
+import Loan from "../loan/Loan";
 import Profile from "../customer/Profile";
-import Loanlist from "../customer/Loanlist";
+import Loanlist from "../loan/Loanlist";
 import Mytiles from "../customer/Mytiles";
 import { useLocation } from "react-router";
 
