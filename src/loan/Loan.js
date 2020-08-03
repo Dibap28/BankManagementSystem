@@ -4,22 +4,21 @@ import { connect } from "react-redux";
 import { ADD_LOAN, SAVE_LIST } from "../store/action";
 
 const Loan = (props) => {
-  console.log("PROPSSS-->", props.ln_array);
+  //console.log("PROPSSS-->", props.ln_array);
 
   const [state, setState] = useState({
     loan_amount: props.loan_amount_state,
     loan_type: "Home Loan",
-    date: "1/8/2020",
+    date: "2020-08-03",
     rate_of_interest: "3.2",
     duration_of_loan: props.duration_loan,
     loan_array: props.ln_array,
   });
 
   //useReducer
-  console.log("MY SATET VALUE", state);
+  //console.log("MY SATET VALUE", state);
 
   const handleChange = (event) => {
-    //console.log(...state);
     const value = event.target.value;
     setState({
       ...state,
@@ -30,9 +29,6 @@ const Loan = (props) => {
   const dataSave = (e) => {
     const new_obj = { ...state };
     delete new_obj.loan_array;
-    // console.log("Previous onj", state.loan_array);
-    //  console.log("LOAN ARRY", state.loan_array);
-    //console.log("STATE LOAN ARRAY-->", [...props.ln_array]);
     const new_obj_prev = [...state.loan_array];
     new_obj_prev.push(new_obj);
 
