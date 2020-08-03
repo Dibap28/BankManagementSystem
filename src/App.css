@@ -65,3 +65,13 @@ label {
 button {
   border-radius: 0px !important;
 }
+.headerstyle {
+  color: white;
+  padding-right: 10px;
+  padding-top: 2px;
+  font-size: medium;
+}
+a:hover {
+  color: white !important;
+  text-decoration: underline;
+}

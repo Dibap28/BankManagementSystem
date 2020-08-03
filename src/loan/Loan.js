@@ -55,7 +55,6 @@ const Loan = (props) => {
                 <Form.Control
                   as="select"
                   className="col-md-6"
-                  defaultValue="Choose..."
                   name="loan_type"
                   value={state.loan_type}
                   onChange={handleChange}
@@ -74,7 +73,6 @@ const Loan = (props) => {
                 <Form.Control
                   type="text"
                   className="col-md-6"
-                  defaultValue="Choose..."
                   name="loan_amount"
                   value={state.loan_amount}
                   onChange={handleChange}
@@ -105,7 +103,6 @@ const Loan = (props) => {
                 <Form.Control
                   as="select"
                   className="col-md-6"
-                  defaultValue="Choose..."
                   name="rate_of_interest"
                   value={state.rate_of_interest}
                   onChange={handleChange}
@@ -126,7 +123,6 @@ const Loan = (props) => {
                 <Form.Control
                   as="select"
                   className="col-md-6"
-                  defaultValue="Choose..."
                   name="duration_of_loan"
                   value={state.duration_of_loan}
                   onChange={handleChange}

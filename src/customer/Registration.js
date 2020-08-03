@@ -147,7 +147,6 @@ const Registration = (props) => {
                     as="select"
                     name="country"
                     value={state.country}
-                    defaultValue="Choose..."
                     onChange={setHandler}
                   >
                     <option>Choose...</option>
@@ -164,7 +163,6 @@ const Registration = (props) => {
                     as="select"
                     name="state"
                     value={state.state}
-                    defaultValue="Choose..."
                     onChange={setHandler}
                   >
                     <option>Choose...</option>
@@ -182,7 +180,6 @@ const Registration = (props) => {
                     as="select"
                     name="city"
                     value={state.city}
-                    defaultValue="Choose..."
                     onChange={setHandler}
                   >
                     <option>Choose...</option>
