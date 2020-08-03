@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState, setState } from "react";
 import { Table, Card } from "react-bootstrap";
+import { connect } from "react-redux";
 
-const Loanlist = () => {
+const Loanlist = (props) => {
+  const loanDetails = useState([...props.ln_array]);
+  console.log("loanalist", loanDetails);
   return (
     <React.Fragment>
       <Card className="col-md-10 offset-1">
@@ -10,25 +13,25 @@ const Loanlist = () => {
           <Table striped bordered hover size="sm">
             <thead>
               <tr>
-                <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
+                <th>Sl No</th>
+                <th>Loan Amount</th>
+                <th>Loan Type</th>
+                <th>Date</th>
+                <th>Rate Of Interest</th>
+                <th>Duration Of Loan</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
+              {loanDetails[0].map((e, key) => (
+                <tr>
+                  <td>{++key}</td>
+                  <td>{e.loan_amount}</td>
+                  <td>{e.loan_type}</td>
+                  <td>{e.date}</td>
+                  <td>{e.rate_of_interest}</td>
+                  <td>{e.duration_of_loan}</td>
+                </tr>
+              ))}
             </tbody>
           </Table>
         </Card-body>
@@ -37,4 +40,10 @@ const Loanlist = () => {
   );
 };
 
-export default Loanlist;
+const mapStateToProps = (state) => {
+  return {
+    ln_array: [...state.loan_submitted],
+  };
+};
+
+export default connect(mapStateToProps, null)(Loanlist);

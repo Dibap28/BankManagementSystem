@@ -1,21 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Button, Card } from "react-bootstrap";
 import { connect } from "react-redux";
 
 const Loan = (props) => {
+  console.log("PROPSSS-->", props.ln_array);
+
   const [state, setState] = useState({
     loan_amount: props.loan_amount_state,
     loan_type: "Home Loan",
     date: "1/8/2020",
     rate_of_interest: "3.2",
-    duration_of_loan: "",
+    duration_of_loan: props.duration_loan,
+    loan_array: props.ln_array,
   });
-  // const [loan_amount, setLoanamount] = useState(props.loan_amount_state);
-  // console.log("loan_amount", loan_amount);
-  // const [loan_type, setLoantype] = useState("");
-  // const [date, setDate] = useState("");
-  // const [rate_of_interest, setRate] = useState("");
-  // const [duration_of_loan, setDuration] = useState("");
+
+  //useReducer
+  console.log("MY SATET VALUE", state);
+
   const handleChange = (event) => {
     //console.log(...state);
     const value = event.target.value;
@@ -25,9 +26,23 @@ const Loan = (props) => {
     });
   };
 
-  const applyLoan = () => {
-    console.log("Values applied for loan", state);
+  const dataSave = (e) => {
+    const new_obj = { ...state };
+    delete new_obj.loan_array;
+    // console.log("Previous onj", state.loan_array);
+    //  console.log("LOAN ARRY", state.loan_array);
+    //console.log("STATE LOAN ARRAY-->", [...props.ln_array]);
+    const new_obj_prev = [...state.loan_array];
+    new_obj_prev.push(new_obj);
+
+    setState({
+      ...state,
+      loan_array: [...state.loan_array, new_obj],
+    });
+
+    props.saveLoanArray(new_obj);
   };
+
   return (
     <React.Fragment>
       <Card className="col-md-10 offset-1">
@@ -64,7 +79,7 @@ const Loan = (props) => {
                   className="col-md-6"
                   defaultValue="Choose..."
                   name="loan_amount"
-                  value={props.loan_amount_state}
+                  value={state.loan_amount}
                   onChange={handleChange}
                 ></Form.Control>
               </Form.Group>
@@ -129,7 +144,7 @@ const Loan = (props) => {
                 <Button
                   style={{ marginLeft: "10px", float: "left" }}
                   variant="primary"
-                  onClick={props.saveValue}
+                  onClick={dataSave}
                 >
                   Apply Loan
                 </Button>
@@ -145,13 +160,17 @@ const Loan = (props) => {
 const mapStateToProps = (state) => {
   return {
     loan_amount_state: state.loan_amount,
+    duration_loan: state.duration_of_loan,
+    ln_array: state.loan_submitted,
   };
 };
 
-const mapDispatchToProps = (dispatch, state) => {
-  const data = state.loan_type;
+const mapDispatchToProps = (dispatch) => {
   return {
-    saveValue: (data) => dispatch({ type: "ADD_LOAN", payload: data }),
+    saveValue: (data) => dispatch({ type: "ADD_LOAN", value: data }),
+    saveLoanArray: (data) => {
+      dispatch({ type: "SAVE_LIST", value: data });
+    },
   };
 };
 
