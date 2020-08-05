@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Form, Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { ADD_USER } from "../store/action";
+import { useSelector, useDispatch } from "react-redux";
 
 const Registration = (props) => {
   let formname = props.formname;
@@ -10,6 +12,15 @@ const Registration = (props) => {
   } else {
     IsDisabled = true;
   }
+
+  const dispatch = useDispatch();
+  const reg_data = useSelector((state) => state);
+  console.log("reg-data", reg_data);
+  const saveValue = (data) => {
+    console.log("called DISPATCH", data);
+    dispatch({ type: ADD_USER, value: data });
+  };
+
   const [state, setState] = useState({
     fullname: "",
     email: "",
@@ -35,7 +46,8 @@ const Registration = (props) => {
   };
 
   const Register = () => {
-    console.log("Here", state);
+    console.log(state);
+    saveValue(state);
   };
   return (
     <React.Fragment>
@@ -264,16 +276,16 @@ const Registration = (props) => {
                   />
                 </Form.Group>
               </Form.Row>
-              <Link to="/login">
-                <Button
-                  className="Button-left"
-                  variant="primary"
-                  type="submit"
-                  onClick={Register}
-                >
-                  Register
-                </Button>
-              </Link>
+              {/* <Link to="/login"> */}
+              <Button
+                className="Button-left"
+                variant="primary"
+                // type="submit"
+                onClick={Register}
+              >
+                Register
+              </Button>
+              {/* </Link> */}
             </Form>
             <br></br>
             <div>

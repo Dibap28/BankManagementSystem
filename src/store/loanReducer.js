@@ -1,4 +1,4 @@
-import { ADD_LOAN, SAVE_LIST } from "../store/action";
+import { ADD_LOAN, SAVE_LIST } from "./action";
 
 //Reducer
 const initialState = {
@@ -9,7 +9,7 @@ const initialState = {
   duration_of_loan: 3,
   loan_submitted: [],
 };
-const rootReducer = (state = initialState, action) => {
+const loanReducer = (state = initialState, action) => {
   if (action.type === ADD_LOAN) {
     return {
       ...state,
@@ -33,4 +33,4 @@ const rootReducer = (state = initialState, action) => {
 
         console.log("PUSHHHH", new_state_rendered);
         */
-export default rootReducer;
+export default loanReducer;
