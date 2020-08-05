@@ -19,23 +19,23 @@ const initialState = {
 
 const registrationReducer = (state = initialState, action) => {
   if (action.type === ADD_USER) {
-    console.log("ACTION", action);
+    console.log("ACTION", state);
     return {
       ...state,
-      fullname: action.fullname,
-      email: action.email,
-      username: action.username,
-      password: action.password,
-      address1: action.address1,
-      address2: action.address2,
-      country: action.country,
-      state: action.state,
-      city: action.city,
-      zip: action.zip,
-      pan: action.pan,
-      contact_no: action.contact_no,
-      dob: action.dob,
-      account_type: action.account_type,
+      fullname: action.value.fullname,
+      email: action.value.email,
+      username: action.value.username,
+      password: action.value.password,
+      address1: action.value.address1,
+      address2: action.value.ddress2,
+      country: action.value.country,
+      state: action.value.state,
+      city: action.value.city,
+      zip: action.value.zip,
+      pan: action.value.pan,
+      contact_no: action.value.contact_no,
+      dob: action.value.dob,
+      account_type: action.value.account_type,
     };
   }
   return state;

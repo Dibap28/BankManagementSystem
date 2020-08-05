@@ -14,29 +14,31 @@ const Registration = (props) => {
   }
 
   const dispatch = useDispatch();
-  const reg_data = useSelector((state) => state);
+  const reg_data = useSelector((state) => state.registrationReducer);
   console.log("reg-data", reg_data);
   const saveValue = (data) => {
     console.log("called DISPATCH", data);
     dispatch({ type: ADD_USER, value: data });
   };
 
-  const [state, setState] = useState({
-    fullname: "",
-    email: "",
-    username: "",
-    password: "",
-    address1: "",
-    address2: "",
-    country: "",
-    state: "",
-    city: "",
-    zip: "",
-    pan: "",
-    contact_no: "",
-    dob: "",
-    account_type: "",
-  });
+  // const [state, setState] = useState({
+  //   fullname: reg_data.fullname,
+  //   email: "",
+  //   username: "",
+  //   password: "",
+  //   address1: "",
+  //   address2: "",
+  //   country: "",
+  //   state: "",
+  //   city: "",
+  //   zip: "",
+  //   pan: "",
+  //   contact_no: "",
+  //   dob: "",
+  //   account_type: "",
+  // });
+
+  const [state, setState] = useState(reg_data);
   const setHandler = (event) => {
     const value = event.target.value;
     setState({
