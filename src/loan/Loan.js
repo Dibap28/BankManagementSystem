@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Form, Button, Card } from "react-bootstrap";
 import { connect } from "react-redux";
-import { ADD_LOAN, SAVE_LIST } from "../store/action";
+import { ADD_LOAN, SAVE_LIST } from "../store/actionTypes";
 
 const Loan = (props) => {
-  //console.log("PROPSSS-->", props.ln_array);
+  console.log("PROPSSS-->", props.ln_array);
 
   const [state, setState] = useState({
     loan_amount: props.loan_amount_state,
@@ -151,10 +151,11 @@ const Loan = (props) => {
 };
 
 const mapStateToProps = (state) => {
+  console.log("loan state", state);
   return {
-    loan_amount_state: state.loan_amount,
-    duration_loan: state.duration_of_loan,
-    ln_array: state.loan_submitted,
+    loan_amount_state: state.loanReducer.loan_amount,
+    duration_loan: state.loanReducer.duration_of_loan,
+    ln_array: state.loanReducer.loan_submitted,
   };
 };
 

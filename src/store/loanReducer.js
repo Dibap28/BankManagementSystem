@@ -1,4 +1,4 @@
-import { ADD_LOAN, SAVE_LIST } from "./action";
+import { ADD_LOAN, SAVE_LIST } from "./actionTypes";
 
 //Reducer
 const initialState = {

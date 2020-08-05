@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Form, Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { ADD_USER } from "../store/action";
 import { useSelector, useDispatch } from "react-redux";
+import * as actionCreator from "../store/action";
 
 const Registration = (props) => {
   let formname = props.formname;
@@ -18,7 +18,7 @@ const Registration = (props) => {
   console.log("reg-data", reg_data);
   const saveValue = (data) => {
     console.log("called DISPATCH", data);
-    dispatch({ type: ADD_USER, value: data });
+    dispatch(actionCreator.addUser(data));
   };
 
   // const [state, setState] = useState({

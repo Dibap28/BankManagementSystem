@@ -1,4 +1,4 @@
-import { ADD_USER } from "../store/action";
+import { ADD_USER } from "../store/actionTypes";
 
 const initialState = {
   fullname: "diba p",

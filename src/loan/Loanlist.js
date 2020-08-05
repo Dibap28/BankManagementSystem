@@ -42,7 +42,7 @@ const Loanlist = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    ln_array: [...state.loan_submitted],
+    ln_array: [...state.loanReducer.loan_submitted],
   };
 };
 
